@@ -5,6 +5,8 @@ using UnityEngine;
 // https://vazgriz.com/621/pid-controllers/ 
 public class PhysicsHands : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
+    
     //Stuff for the inspector
     [Header("PID")]
     [SerializeField] float frequency = 50f; 
@@ -25,13 +27,14 @@ public class PhysicsHands : MonoBehaviour
     
     private Rigidbody _rigidbody;
     
+    
 
     void Start()
     {
         //teleport physics directly to player position
         transform.position = target.position;
         transform.rotation = target.rotation;
-        
+
         _rigidbody = GetComponent<Rigidbody>();
         
         // Eliminates upper limit of the rotation of the hands
@@ -42,14 +45,16 @@ public class PhysicsHands : MonoBehaviour
     
     void FixedUpdate()
     {
-        Debug.Log(_rigidbody.position);
+        //Debug.Log(_rigidbody.position);
         
-        //PIDMovement();
-        //PIDRotation();
+        PIDMovement();
+        PIDRotation();
         if(_isColliding)
         {
             HookesLaw();
         }
+        
+        //Hier noch aktuell rotation auf richtige position und das dann zukünftig in die Rotation einbauen
     }
 
     void HookesLaw()
@@ -105,6 +110,9 @@ public class PhysicsHands : MonoBehaviour
         float g = 1 / (1 + kd * Time.fixedDeltaTime + kp * Time.fixedDeltaTime * Time.fixedDeltaTime);
         float ksg = kp * g;
         float kdg = (kd + kp * Time.fixedDeltaTime) * g;
+        //Quaternion target_rot = target.rotation;
+        //target_rot.x += 90;
+        //Quaternion q = target_rot * Quaternion.Inverse(transform.rotation);
         Quaternion q = target.rotation * Quaternion.Inverse(transform.rotation);
 
         if (q.w < 0)
@@ -113,6 +121,10 @@ public class PhysicsHands : MonoBehaviour
             q.y = -q.y;
             q.z = -q.z;
             q.w = -q.w;
+        }
+        else
+        {
+            //q.x = q.x + 90 ;
         }
         q.ToAngleAxis(out float angle, out Vector3 axis);
         axis.Normalize();
@@ -125,6 +137,15 @@ public class PhysicsHands : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         _isColliding = true;
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("coin"))
+        {
+            player.GetComponent<LocomotionTechnique>().coin(other);
+        }
     }
 
     private void OnCollisionExit(Collision other)

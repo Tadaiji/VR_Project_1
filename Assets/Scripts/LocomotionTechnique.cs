@@ -114,10 +114,15 @@ public class LocomotionTechnique : MonoBehaviour
         }
         else if (other.CompareTag("coin"))
         {
-            parkourCounter.coinCount += 1;
-            this.GetComponent<AudioSource>().Play();
-            other.gameObject.SetActive(false);
+            //coin(other);
         }
         // These are for the game mechanism.
+    }
+
+    public void coin(Collider other)
+    {
+        parkourCounter.coinCount += 1;
+        this.GetComponent<AudioSource>().Play();
+        other.gameObject.SetActive(false);
     }
 }

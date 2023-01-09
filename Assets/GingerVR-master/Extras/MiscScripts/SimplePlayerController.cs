@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SimplePlayerController : MonoBehaviour
 {
@@ -17,9 +19,15 @@ public class SimplePlayerController : MonoBehaviour
         rb.velocity = new Vector3(x*speed, x*speed/2, z*speed);
     }
 
+    void Rotate(float x, float z)
+    {
+        //rb.rotation = new Quaternion(x*speed, x*speed/2, z*speed, Single.PositiveInfinity);
+    }
+
     // Update is called once per frame
     void Update()
     {
-       Move(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
+       //Move(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
+       Rotate(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
     }
 }
