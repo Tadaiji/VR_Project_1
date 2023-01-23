@@ -63,8 +63,8 @@ public class SelectionTaskMeasure : MonoBehaviour
         donePanel.SetActive(true);
         //objectTStartingPos = taskUI.transform.position + taskUI.transform.forward * 0.5f + taskUI.transform.up * 0.75f;
         //targetTStartingPos = taskUI.transform.position + taskUI.transform.forward * 0.75f + taskUI.transform.up * 1.2f;
-        objectTStartingPos = taskUI.transform.position + taskUI.transform.forward + taskUI.transform.up;
-        targetTStartingPos = taskUI.transform.position + taskUI.transform.forward + taskUI.transform.up;
+        objectTStartingPos = taskUI.transform.position;
+        targetTStartingPos = taskUI.transform.position;
         objectT = Instantiate(objectTPrefab, objectTStartingPos, new Quaternion(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f)));
         targerT = Instantiate(targerTPrefab, targetTStartingPos, new Quaternion(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f)));
     }
@@ -88,7 +88,7 @@ public class SelectionTaskMeasure : MonoBehaviour
         partSumTime += taskTime;
         dataRecording.AddOneData(parkourCounter.locomotionTech.stage.ToString(), completeCount, taskTime, manipulationError);
 
-        Debug.Log("Time: " + taskTime.ToString("F1") + "\nPrecision: " + manipulationError.magnitude.ToString("F1"));
+        // Debug.Log("Time: " + taskTime.ToString("F1") + "\nPrecision: " + manipulationError.magnitude.ToString("F1"));
         Destroy(objectT);
         Destroy(targerT);
         StartCoroutine(Countdown(3f));
