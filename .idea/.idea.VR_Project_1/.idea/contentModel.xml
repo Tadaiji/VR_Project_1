@@ -62,6 +62,7 @@
             </e>
           </e>
         </e>
+        <e p="HandsScript.cs" t="Include" />
         <e p="Oculus" t="Include">
           <e p="AudioManager" t="Include">
             <e p="Oculus.AudioManager.asmdef" t="Include" />

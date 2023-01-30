@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcee8f48b62bd1d49a94d3493e8f078b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   frequency: 50
   damping: 1
   target: {fileID: 0}
@@ -398,6 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcee8f48b62bd1d49a94d3493e8f078b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   frequency: 50
   damping: 1
   target: {fileID: 0}
