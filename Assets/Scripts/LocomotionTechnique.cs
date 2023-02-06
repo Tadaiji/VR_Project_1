@@ -96,21 +96,11 @@ public class LocomotionTechnique : MonoBehaviour
         // These are for the game mechanism.
         if (other.CompareTag("banner"))
         {
-            stage = other.gameObject.name;
-            parkourCounter.isStageChange = true;
+            banner(other);
         }
         else if (other.CompareTag("objectInteractionTask"))
         {
-            selectionTaskMeasure.isTaskStart = true;
-            selectionTaskMeasure.scoreText.text = "";
-            selectionTaskMeasure.partSumErr = 0f;
-            selectionTaskMeasure.partSumTime = 0f;
-            // rotation: facing the user's entering direction
-            float tempValueY = other.transform.position.y > 0 ? 12 : 0;
-            Vector3 tmpTarget = new Vector3(hmd.transform.position.x, tempValueY, hmd.transform.position.z);
-            selectionTaskMeasure.taskUI.transform.LookAt(tmpTarget);
-            selectionTaskMeasure.taskUI.transform.Rotate(new Vector3(0, 180f, 0));
-            selectionTaskMeasure.taskStartPanel.SetActive(true);
+            objectInteractionTask(other);
         }
         else if (other.CompareTag("coin"))
         {
@@ -124,5 +114,25 @@ public class LocomotionTechnique : MonoBehaviour
         parkourCounter.coinCount += 1;
         this.GetComponent<AudioSource>().Play();
         other.gameObject.SetActive(false);
+    }
+
+    public void objectInteractionTask(Collider other)
+    {
+        selectionTaskMeasure.isTaskStart = true;
+        selectionTaskMeasure.scoreText.text = "";
+        selectionTaskMeasure.partSumErr = 0f;
+        selectionTaskMeasure.partSumTime = 0f;
+        // rotation: facing the user's entering direction
+        float tempValueY = other.transform.position.y > 0 ? 12 : 0;
+        Vector3 tmpTarget = new Vector3(hmd.transform.position.x, tempValueY, hmd.transform.position.z);
+        selectionTaskMeasure.taskUI.transform.LookAt(tmpTarget);
+        selectionTaskMeasure.taskUI.transform.Rotate(new Vector3(0, 180f, 0));
+        selectionTaskMeasure.taskStartPanel.SetActive(true);
+    }
+
+    public void banner(Collider other)
+    {
+        stage = other.gameObject.name;
+        parkourCounter.isStageChange = true;
     }
 }

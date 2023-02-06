@@ -27,11 +27,9 @@ public class PhysicsHands : MonoBehaviour
     
     private Rigidbody _rigidbody;
     
-    
-    
-
     void Start()
     {
+        Debug.Log("PhysicsHands Start");
         //teleport physics directly to player position
         transform.position = target.position;
         transform.rotation = target.rotation;
@@ -98,7 +96,9 @@ public class PhysicsHands : MonoBehaviour
         //calculate how much force/acceleration to add to physics hand
         Vector3 force = (target.position - transform.position) * ksg +
                         (playerRigidbody.velocity - _rigidbody.velocity) * kdg;
-
+        
+        //Debug.Log("PIDMovement force: " + force);
+        
         _rigidbody.AddForce(force, ForceMode.Acceleration);
     }
     void PIDRotation()
@@ -131,13 +131,15 @@ public class PhysicsHands : MonoBehaviour
         axis.Normalize();
         axis *= Mathf.Deg2Rad;
         Vector3 torque = ksg * axis * angle + -_rigidbody.angularVelocity * kdg;
-
+        //Debug.Log("PIDRotation torque: " + torque);
+        
         _rigidbody.AddTorque(torque, ForceMode.Acceleration);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         _isColliding = true;
+        //Debug.Log("Collision Count on Enter: " + collision.contactCount);
 
     }
 
@@ -147,10 +149,19 @@ public class PhysicsHands : MonoBehaviour
         {
             player.GetComponent<LocomotionTechnique>().coin(other);
         }
+        if (other.CompareTag("banner"))
+        {
+            player.GetComponent<LocomotionTechnique>().banner(other);
+        }
+        else if (other.CompareTag("objectInteractionTask"))
+        {
+            player.GetComponent<LocomotionTechnique>().objectInteractionTask(other);
+        }
     }
-
+    
     private void OnCollisionExit(Collision other)
     {
         _isColliding = false;
     }
+
 }

@@ -62,7 +62,6 @@
             </e>
           </e>
         </e>
-        <e p="HandsScript.cs" t="Include" />
         <e p="Oculus" t="Include">
           <e p="AudioManager" t="Include">
             <e p="Oculus.AudioManager.asmdef" t="Include" />
@@ -2261,7 +2260,9 @@
         <e p="Scripts" t="Include">
           <e p="CoinRotator.cs" t="Include" />
           <e p="DebugDisplay.cs" t="Include" />
+          <e p="Extended_Arms.cs" t="Include" />
           <e p="GoGoArms.cs" t="Include" />
+          <e p="HandsScript.cs" t="Include" />
           <e p="LocomotionTechnique.cs" t="Include" />
           <e p="MyGrab.cs" t="Include" />
           <e p="ParkourCounter.cs" t="Include" />
