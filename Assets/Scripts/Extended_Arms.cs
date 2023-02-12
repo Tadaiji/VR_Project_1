@@ -29,7 +29,6 @@ public class Extended_Arms : MonoBehaviour
         stickPosition = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, controller);
         if (stickPosition.x != 0)
         {
-            // X local position für 
             localPositionExtended.x += (stickPosition.x * 0.3f);
             handPlaceholder.transform.localPosition = localPositionExtended;
         }
@@ -47,7 +46,7 @@ public class Extended_Arms : MonoBehaviour
             if (!triggerd)
             {
                 triggerd = true;       
-                handPlaceholder.SetActive(true);
+                //handPlaceholder.SetActive(true);
                 physicsHand.SetActive(true);
                 Debug.Log("Extend Aktiv");
                 
@@ -55,45 +54,12 @@ public class Extended_Arms : MonoBehaviour
             else
             {
                 physicsHand.SetActive(false);
-                handPlaceholder.SetActive(false);
+                //handPlaceholder.SetActive(false);
                 Debug.Log("Extend Deaktiv");
                 triggerd = false;
             }
                
         }
     }
-        /*
-        if (OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, controller) > 0.9f )
-        {
-            if (!triggerd)
-            {
-                triggerd = true;       
-                handPlaceholder.SetActive(true);
-                physicsHand.SetActive(true);
-                
-            }
-            else
-            {
-                handPlaceholder.SetActive(false);
-                physicsHand.SetActive(false);
-                triggerd = false;
-            }
-               
-        }
 
-        if (OVRInput.Get(OVRInput.Button.One, controller))
-        {
-            localPositionExtended.z = localPositionExtended.z + 0.2f;
-            handPlaceholder.transform.localPosition = localPositionExtended;
-        }
-        if (OVRInput.Get(OVRInput.Button.Two, controller))
-        {
-            localPositionExtended.z = localPositionExtended.z - 0.2f;
-            handPlaceholder.transform.localPosition = localPositionExtended;
-        }
-        */     
-        
-        
-    
-    
 }

@@ -164,4 +164,13 @@ public class PhysicsHands : MonoBehaviour
         _isColliding = false;
     }
 
+    public void OnEnable()
+    {
+        
+    }
+
+    public void OnDisable()
+    {
+        
+    }
 }

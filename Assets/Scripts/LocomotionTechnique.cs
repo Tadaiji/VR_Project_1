@@ -81,7 +81,7 @@ public class LocomotionTechnique : MonoBehaviour
 
         ////////////////////////////////////////////////////////////////////////////////
         // These are for the game mechanism.
-        if (OVRInput.Get(OVRInput.Button.Two) || OVRInput.Get(OVRInput.Button.Four))
+        if (OVRInput.Get(OVRInput.Button.PrimaryThumbstick) || OVRInput.Get(OVRInput.Button.SecondaryThumbstick))
         {
             if (parkourCounter.parkourStart)
             {
@@ -92,7 +92,6 @@ public class LocomotionTechnique : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-
         // These are for the game mechanism.
         if (other.CompareTag("banner"))
         {
