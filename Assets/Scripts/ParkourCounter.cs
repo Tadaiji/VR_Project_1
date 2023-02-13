@@ -122,7 +122,7 @@ public class ParkourCounter : MonoBehaviour
                 recordTextGO.SetActive(false);
                 endTextGO.SetActive(true);
                 endTextGO.GetComponent<TMP_Text>().text = "Parkour Finished!\n" + recordText.text +
-                    "\ntotal: " + timeCounter.ToString("F1") + ", " + coinCount.ToString() + "/69";
+                    "\n" + coinCount.ToString() + "/64";
                 Debug.Log(endTextGO.GetComponent<TMP_Text>().text);
                 endSoundEffect.Play();
             }
@@ -132,7 +132,7 @@ public class ParkourCounter : MonoBehaviour
         {
             timeCounter += Time.deltaTime;
             timeText.text = "time: " + timeCounter.ToString("F1");
-            coinText.text = "coins: " + coinCount.ToString();
+            coinText.text = "coins: " + coinCount.ToString() + " / 74";
         }       
     }
 

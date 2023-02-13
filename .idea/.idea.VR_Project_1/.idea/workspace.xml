@@ -31,6 +31,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/LocomotionTechnique.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PhysicsHands.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MyGrab.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ParkourCounter.cs" />
       </list>
     </option>
   </component>
@@ -89,6 +90,7 @@
       <workItem from="1675713921796" duration="6329000" />
       <workItem from="1676230577840" duration="3027000" />
       <workItem from="1676294271594" duration="12924000" />
+      <workItem from="1676326411896" duration="1071000" />
     </task>
     <servers />
   </component>
