@@ -26,6 +26,9 @@ public class PhysicsHands : MonoBehaviour
     private Vector3 _previousPosition;
     
     private Rigidbody _rigidbody;
+
+    private bool triggeredObject = false;
+    public bool mainController;
     
     void Start()
     {
@@ -147,6 +150,7 @@ public class PhysicsHands : MonoBehaviour
     {
         if (other.gameObject.CompareTag("coin"))
         {
+            Debug.Log("Coin");
             player.GetComponent<LocomotionTechnique>().coin(other);
         }
         if (other.CompareTag("banner"))
@@ -155,10 +159,25 @@ public class PhysicsHands : MonoBehaviour
         }
         else if (other.CompareTag("objectInteractionTask"))
         {
-            player.GetComponent<LocomotionTechnique>().objectInteractionTask(other);
+            if (!triggeredObject)
+            {
+                triggeredObject = true;
+                player.GetComponent<LocomotionTechnique>().objectInteractionTask(other);
+            }
         }
     }
-    
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("objectInteractionTask"))
+        {
+            if (mainController)
+            {
+                triggeredObject = false;
+            }
+        }
+    }
+
     private void OnCollisionExit(Collision other)
     {
         _isColliding = false;

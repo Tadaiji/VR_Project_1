@@ -8,6 +8,7 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="AnimateHand.cs" t="Include" />
         <e p="DataRecording.cs" t="Include" />
         <e p="GingerVR-master" t="Include">
           <e p="Extras" t="Include">
@@ -2258,13 +2259,16 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="AnimationTrigger.cs" t="Include" />
           <e p="CoinRotator.cs" t="Include" />
           <e p="DebugDisplay.cs" t="Include" />
           <e p="Extended_Arms.cs" t="Include" />
           <e p="GoGoArms.cs" t="Include" />
-          <e p="HandsScript.cs" t="Include" />
           <e p="LocomotionTechnique.cs" t="Include" />
           <e p="MyGrab.cs" t="Include" />
+          <e p="Old Scripts" t="Include">
+            <e p="HandsScript.cs" t="Include" />
+          </e>
           <e p="ParkourCounter.cs" t="Include" />
           <e p="PhysicsHands.cs" t="Include" />
           <e p="PlayerTurn.cs" t="Include" />

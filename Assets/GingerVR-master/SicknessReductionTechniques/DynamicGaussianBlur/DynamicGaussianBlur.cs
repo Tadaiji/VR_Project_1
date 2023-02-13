@@ -28,8 +28,8 @@ public class DynamicGaussianBlur : MonoBehaviour
     }
 
     Vector3 lastRotation;
-    Vector3 lastAngularVelocity;
-    Vector3 angularVelocity;
+    public Vector3 lastAngularVelocity;
+    public Vector3 angularVelocity;
     Vector3 angularAcceleration;
    
 

@@ -25,19 +25,22 @@ public class Extended_Arms : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        var rightTriggerValue = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.RTouch); 
         stickPosition = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, controller);
-        if (stickPosition.x != 0)
+        if(rightTriggerValue > 0.95f)
         {
-            localPositionExtended.x += (stickPosition.x * 0.3f);
-            handPlaceholder.transform.localPosition = localPositionExtended;
-        }
+            if (stickPosition.x != 0)
+            {
+                localPositionExtended.x += (stickPosition.x * 0.3f);
+                handPlaceholder.transform.localPosition = localPositionExtended;
+            }
 
-        if (stickPosition.y != 0)
-        {
-            localPositionExtended.z += (stickPosition.y * 0.1f);
-            handPlaceholder.transform.localPosition = localPositionExtended;
-            
+            if (stickPosition.y != 0)
+            {
+                localPositionExtended.z += (stickPosition.y * 0.1f);
+                handPlaceholder.transform.localPosition = localPositionExtended;
+
+            }
         }
 
 
@@ -46,7 +49,7 @@ public class Extended_Arms : MonoBehaviour
             if (!triggerd)
             {
                 triggerd = true;       
-                //handPlaceholder.SetActive(true);
+                handPlaceholder.SetActive(true);
                 physicsHand.SetActive(true);
                 Debug.Log("Extend Aktiv");
                 
@@ -54,7 +57,7 @@ public class Extended_Arms : MonoBehaviour
             else
             {
                 physicsHand.SetActive(false);
-                //handPlaceholder.SetActive(false);
+                handPlaceholder.SetActive(false);
                 Debug.Log("Extend Deaktiv");
                 triggerd = false;
             }

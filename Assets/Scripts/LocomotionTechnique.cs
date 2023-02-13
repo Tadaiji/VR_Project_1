@@ -21,16 +21,13 @@ public class LocomotionTechnique : MonoBehaviour
     public ParkourCounter parkourCounter;
     public string stage;
     public SelectionTaskMeasure selectionTaskMeasure;
-    
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Please implement your LOCOMOTION TECHNIQUE in this script :D.
+        
+        /*
         leftTriggerValue = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, leftController); 
         rightTriggerValue = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, rightController); 
 
@@ -77,10 +74,11 @@ public class LocomotionTechnique : MonoBehaviour
             }
         }
         this.transform.position = this.transform.position + (offset) * translationGain;
-
+        */
 
         ////////////////////////////////////////////////////////////////////////////////
         // These are for the game mechanism.
+        // Respawn 
         if (OVRInput.Get(OVRInput.Button.PrimaryThumbstick) || OVRInput.Get(OVRInput.Button.SecondaryThumbstick))
         {
             if (parkourCounter.parkourStart)
@@ -110,8 +108,9 @@ public class LocomotionTechnique : MonoBehaviour
 
     public void coin(Collider other)
     {
+        Debug.Log("Locomotion function Coin");
         parkourCounter.coinCount += 1;
-        this.GetComponent<AudioSource>().Play();
+        GetComponent<AudioSource>().Play();
         other.gameObject.SetActive(false);
     }
 
