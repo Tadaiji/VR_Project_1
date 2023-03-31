@@ -21,12 +21,17 @@ public class MyGrab : MonoBehaviour
         {
             if (!isSelected && triggerValue > 0.95f)
             {
+                Debug.Log("is Selected");
                 isSelected = true;
                 prevParent = selectedObj.transform.parent;
                 selectedObj.transform.parent.transform.SetParent(transform);
             }
             else if (isSelected && triggerValue < 0.95f)
             {
+                Debug.Log("is Unselected");
+                //selectedObj.transform.parent.SetParent(prevParent);
+                //selectedObj.transform.SetParent(null);
+                //selectedObj.transform.parent.transform.parent = null;
                 isSelected = false;
                 selectedObj.transform.parent.transform.parent = null;
                 
