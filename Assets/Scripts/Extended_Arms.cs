@@ -25,7 +25,9 @@ public class Extended_Arms : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var rightTriggerValue = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.RTouch); 
+        //var rightTriggerValue = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.RTouch); 
+        var rightTriggerValue = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, controller); 
+
         stickPosition = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, controller);
         if(rightTriggerValue > 0.95f)
         {

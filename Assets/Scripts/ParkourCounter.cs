@@ -77,6 +77,8 @@ public class ParkourCounter : MonoBehaviour
                 startBanner.SetActive(false);
                 firstBanner.SetActive(true);
                 firstCoins.SetActive(true);
+                secondCoins.SetActive(true);
+                finalCoins.SetActive(true);
                 objIX1.SetActive(true);
                 this.GetComponent<SelectionTaskMeasure>().taskUI.transform.position = objIX1.transform.position;
                 currentRespawnPos = start2FirstRespawn.position;
@@ -84,10 +86,9 @@ public class ParkourCounter : MonoBehaviour
             else if (locomotionTech.stage == firstBanner.name)
             {
                 firstBanner.SetActive(false);
-                firstCoins.SetActive(false);
+                //firstCoins.SetActive(false);
                 objIX1.SetActive(false);
                 secondBanner.SetActive(true);
-                secondCoins.SetActive(true);
                 objIX2.SetActive(true);
                 this.GetComponent<SelectionTaskMeasure>().taskUI.transform.position = objIX2.transform.position;
                 part1Time = timeCounter;
@@ -98,10 +99,9 @@ public class ParkourCounter : MonoBehaviour
             else if (locomotionTech.stage == secondBanner.name)
             {
                 secondBanner.SetActive(false);
-                secondCoins.SetActive(false);
+                //secondCoins.SetActive(false);
                 objIX2.SetActive(false);
                 finalBanner.SetActive(true);
-                finalCoins.SetActive(true);
                 objIX3.SetActive(true);
                 this.GetComponent<SelectionTaskMeasure>().taskUI.transform.position = objIX3.transform.position;
                 part2Time = timeCounter - part1Time;
@@ -112,7 +112,7 @@ public class ParkourCounter : MonoBehaviour
             else if (locomotionTech.stage == finalBanner.name)
             {
                 parkourStart = false;
-                finalCoins.SetActive(false);
+                //finalCoins.SetActive(false);
                 objIX3.SetActive(false);
                 part3Time = timeCounter - (part1Time + part2Time);
                 part3Count = coinCount - (part1Count + part2Count);
